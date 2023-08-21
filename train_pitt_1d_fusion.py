@@ -509,13 +509,19 @@ def train_fusion():
     # Get arguments and get rid of unnecessary ones
     train_args = config['args']
 
+    # the best super parameters found by training models with num_samples=10
     for batch_size in [32]:
         for lr in [0.001]:
             for weight_decay in [1e-4]:
                 for dropout in [0]:
+                    # train different model with different training set size. Param num_samples=10 means 10 equations(90
+                    # frames for each equation) thus 900 data in heat, burgers and KdV respectively. Training rate =
+                    # 0.6 thus total training set size is 1620 when num_samples=10.
                     for num_samples in [10, 100, 1000]:
                         print(
-                            f"flnm:{train_args['flnm']},data_name:{train_args['data_name']},num_samples:{num_samples},batch_size:{batch_size},learning_rate:{lr},weight_decay:{train_args['weight_decay']},dropout:{train_args['dropout']}")
+                            f"flnm:{train_args['flnm']},data_name:{train_args['data_name']},num_samples:{num_samples},"
+                            f"batch_size:{batch_size},learning_rate:{lr},weight_decay:{train_args['weight_decay']},"
+                            f"dropout:{train_args['dropout']}")
                         prefix = train_args['flnm'] + "_" + train_args['data_name'].split("_")[0] + "_" + train_args[
                             'train_style'] + "_" + train_args['embedding'] + "_" + str(batch_size) + "_" + str(
                             lr) + "_" + str(weight_decay) + "_" + str(dropout) + "_" + str(num_samples)
@@ -528,11 +534,13 @@ def train_fusion():
                                     "{}{}_{}_{}/pitt_config.yaml".format(train_args['results_dir'],
                                                                          train_args['transformer'],
                                                                          train_args['neural_operator'], prefix))
-                        shutil.copy("./plot_progress.py", "{}{}_{}_{}/plot_progress.py".format(train_args['results_dir'],
-                                                                                               train_args['transformer'],
-                                                                                               train_args[
-                                                                                                   'neural_operator'],
-                                                                                               prefix))
+                        shutil.copy("./plot_progress.py",
+                                    "{}{}_{}_{}/plot_progress.py".format(train_args['results_dir'],
+                                                                         train_args['transformer'],
+                                                                         train_args[
+                                                                             'neural_operator'],
+                                                                         prefix))
+                        # modify super parameters
                         train_args['batch_size'] = batch_size
                         train_args['learning_rate'] = lr
                         train_args['weight_decay'] = weight_decay
