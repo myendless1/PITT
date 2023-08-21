@@ -96,6 +96,14 @@ if __name__ == '__main__':
     heat_100_model_path = '1D_results/pitt_oformer_Heat_varied_next_step_novel_100/Heat_pitt_0.pt'
     heat_1000_model_path = '1D_results/pitt_oformer_Heat_varied_next_step_novel_1000/Heat_pitt_0.pt'
 
+    burgers_10_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_10/Burgers_pitt_0.pt'
+    burgers_100_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_100/Burgers_pitt_0.pt'
+    burgers_1000_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_1000/Burgers_pitt_0.pt'
+
+    kdv_10_model_path = '1D_results/pitt_oformer_KdV_varied_next_step_novel_10/KdV_pitt_0.pt'
+    kdv_100_model_path = '1D_results/pitt_oformer_KdV_varied_next_step_novel_100/KdV_pitt_0.pt'
+    kdv_1000_model_path = '1D_results/pitt_oformer_KdV_varied_next_step_novel_1000/KdV_pitt_0.pt'
+
     # heat_model_path = '1D_results/pitt_oformer_Heat_varied_next_step_novel/Heat_pitt_0.pt'
     # burgers_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel/Burgers_pitt_0.pt'
     # kdv_model_path = '1D_results/pitt_oformer_KdV_varied_next_step_novel/KdV_pitt_0.pt'
@@ -116,6 +124,18 @@ if __name__ == '__main__':
     heat_100_model = get_model(heat_100_model_path, config)
 
     heat_1000_model = get_model(heat_1000_model_path, config)
+
+    burgers_10_model = get_model(burgers_10_model_path, config)
+
+    burgers_100_model = get_model(burgers_100_model_path, config)
+
+    burgers_1000_model = get_model(burgers_1000_model_path, config)
+
+    kdv_10_model = get_model(kdv_10_model_path, config)
+
+    kdv_100_model = get_model(kdv_100_model_path, config)
+
+    kdv_1000_model = get_model(kdv_1000_model_path, config)
 
     # config for data loading process
     heat_config = {
@@ -210,6 +230,9 @@ if __name__ == '__main__':
     # MAE loss
     loss_fn = nn.L1Loss(reduction='mean')
 
+    # Output to file
+    file = open("./compare_result.txt", "w+")
+
     # 1.四个模型在所有数据集上的表现，预测结论：必然是fusion最好
     # output：一组对照实验，四个模型在每一个任务上的loss对比、二十四张图片，四个模型在三个任务上的表现，每组两张
     # ==========================================
@@ -224,11 +247,14 @@ if __name__ == '__main__':
         (heat_10_model, "heat 10"),
         (heat_100_model, "heat 100"),
         (heat_1000_model, "heat 1000"),
-        # (heat_model, "heat"),
-        # (burgers_model, "burgers"),
-        # (kdv_model, "kdv")
+        (burgers_10_model, "burgers 10"),
+        (burgers_100_model, "burgers 100"),
+        (burgers_1000_model, "burgers 1000"),
+        (kdv_10_model, "kdv 10"),
+        (kdv_100_model, "kdv 100"),
+        (kdv_1000_model, "kdv 1000"),
     ]):
-        print(model_name)
+        file.write(f"============evaluating Model:{model_name}============\n")
         for i, (dataloader, datatype) in enumerate([
             (heat_loader, "heat"),
             (burgers_loader, "burgers"),
@@ -240,7 +266,7 @@ if __name__ == '__main__':
                     y_pred = model(grid.to(device), tokens.to(device), x0.to(device), t.to(device))
                     y = y[..., 0].to(device=device)
                     loss = round(loss_fn(y_pred, y).item(), 5)
-                    print(f"{datatype}_{model_name}: {loss}")
+                    file.write(f"{datatype}: {loss}\n")
                     # ax[i][2 * j].plot(y[0].reshape(100, ).detach().cpu())
                     # ax[i][2 * j].plot(y_pred[0].reshape(100, ).detach().cpu())
                     # ax[i][2 * j].set_title(f"{datatype}_{model_name}_1")
