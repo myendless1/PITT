@@ -1,0 +1,48 @@
+============evaluating Model:fusion 10============
+heat: 0.01234
+burgers: 0.00968
+KdV: 0.0086
+============evaluating Model:fusion 100============
+heat: 0.0004
+burgers: 0.00032
+KdV: 0.00343
+============evaluating Model:fusion 1000============
+heat: 0.00011
+burgers: 0.00011
+KdV: 0.00345
+============evaluating Model:heat 10============
+heat: 0.06102
+burgers: 0.05211
+KdV: 0.05425
+============evaluating Model:heat 100============
+heat: 0.00621
+burgers: 0.00481
+KdV: 0.02213
+============evaluating Model:heat 1000============
+heat: 0.00554
+burgers: 0.00433
+KdV: 0.01227
+============evaluating Model:burgers 10============
+heat: 0.10196
+burgers: 0.11824
+KdV: 0.07164
+============evaluating Model:burgers 100============
+heat: 0.00798
+burgers: 0.00675
+KdV: 0.00866
+============evaluating Model:burgers 1000============
+heat: 0.00592
+burgers: 0.00373
+KdV: 0.00878
+============evaluating Model:kdv 10============
+heat: 0.0265
+burgers: 0.01732
+KdV: 0.01308
+============evaluating Model:kdv 100============
+heat: 0.00897
+burgers: 0.0144
+KdV: 0.00035
+============evaluating Model:kdv 1000============
+heat: 0.00402
+burgers: 0.0037
+KdV: 0.00089
