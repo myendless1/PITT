@@ -1,1 +1,2 @@
-============evaluating Model:bert lhs unfrozen 1000============
+============evaluating Model:bert 1000============
+heat: 0.01038

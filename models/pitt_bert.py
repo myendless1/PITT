@@ -288,6 +288,7 @@ class PhysicsInformedTokenTransformerBert(nn.Module):
         self.embedding_layer3 = nn.Linear(1, hidden_dim, bias=False)
 
         self.bert_model = bert_model
+        self.k_embedding_linear = nn.Linear(1, 100, bias=False)
 
         self.embedding_linear = nn.Linear(500, 100, bias=False)
 

@@ -202,26 +202,26 @@ def get_model_bert_cls_lhs(model_path, config):
 
 if __name__ == '__main__':
 
-    fusion_10_model_path = '1D_results/pitt_oformer_Fusion_varied_next_step_novel_32_0.001_0.0001_0_10/Fusion_pitt_0.pt'
-    fusion_100_model_path = '1D_results/pitt_oformer_Fusion_varied_next_step_novel_32_0.001_0.0001_0_100/Fusion_pitt_0.pt'
-    fusion_1000_model_path = '1D_results/pitt_oformer_Fusion_varied_next_step_novel_32_0.001_0.0001_0_1000/Fusion_pitt_0.pt'
+    # fusion_10_model_path = '1D_results/pitt_oformer_Fusion_varied_next_step_novel_32_0.001_0.0001_0_10/Fusion_pitt_0.pt'
+    # fusion_100_model_path = '1D_results/pitt_oformer_Fusion_varied_next_step_novel_32_0.001_0.0001_0_100/Fusion_pitt_0.pt'
+    # fusion_1000_model_path = '1D_results/pitt_oformer_Fusion_varied_next_step_novel_32_0.001_0.0001_0_1000/Fusion_pitt_0.pt'
+    #
+    # heat_10_model_path = '1D_results/pitt_oformer_Heat_varied_next_step_novel_10/Heat_pitt_0.pt'
+    # heat_100_model_path = '1D_results/pitt_oformer_Heat_varied_next_step_novel_100/Heat_pitt_0.pt'
+    # heat_1000_model_path = '1D_results/pitt_oformer_Heat_varied_next_step_novel_1000/Heat_pitt_0.pt'
+    #
+    # burgers_10_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_10/Burgers_pitt_0.pt'
+    # burgers_100_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_100/Burgers_pitt_0.pt'
+    # burgers_1000_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_1000/Burgers_pitt_0.pt'
+    bert_1000_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-4_0.1_1.pt'
+    # bert_1000_cls_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-4_0.1_1000_CLS_hs[0]_bert_frozen.pt'
+    # bert_1000_cls_lhs_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-4_0.1_1000_CLS_lhs_bert_frozen.pt'
+    # bert_1000_lhs_unfrozen_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-4_0.1_1000_lhs_bert_unfrozen.pt'
+    # bert_1000_cls_lhs_unfrozen_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-4_0.1_1000_CLS_lhs_bert_unfrozen.pt'
 
-    heat_10_model_path = '1D_results/pitt_oformer_Heat_varied_next_step_novel_10/Heat_pitt_0.pt'
-    heat_100_model_path = '1D_results/pitt_oformer_Heat_varied_next_step_novel_100/Heat_pitt_0.pt'
-    heat_1000_model_path = '1D_results/pitt_oformer_Heat_varied_next_step_novel_1000/Heat_pitt_0.pt'
-
-    burgers_10_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_10/Burgers_pitt_0.pt'
-    burgers_100_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_100/Burgers_pitt_0.pt'
-    burgers_1000_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_1000/Burgers_pitt_0.pt'
-    bert_1000_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-4.pt'
-    bert_1000_cls_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-4_0.1_1000_CLS_hs[0]_bert_frozen.pt'
-    bert_1000_cls_lhs_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-4_0.1_1000_CLS_lhs_bert_frozen.pt'
-    bert_1000_lhs_unfrozen_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-4_0.1_1000_lhs_bert_unfrozen.pt'
-    bert_1000_cls_lhs_unfrozen_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-4_0.1_1000_CLS_lhs_bert_unfrozen.pt'
-
-    kdv_10_model_path = '1D_results/pitt_oformer_KdV_varied_next_step_novel_10/KdV_pitt_0.pt'
-    kdv_100_model_path = '1D_results/pitt_oformer_KdV_varied_next_step_novel_100/KdV_pitt_0.pt'
-    kdv_1000_model_path = '1D_results/pitt_oformer_KdV_varied_next_step_novel_1000/KdV_pitt_0.pt'
+    # kdv_10_model_path = '1D_results/pitt_oformer_KdV_varied_next_step_novel_10/KdV_pitt_0.pt'
+    # kdv_100_model_path = '1D_results/pitt_oformer_KdV_varied_next_step_novel_100/KdV_pitt_0.pt'
+    # kdv_1000_model_path = '1D_results/pitt_oformer_KdV_varied_next_step_novel_1000/KdV_pitt_0.pt'
 
     # heat_model_path = '1D_results/pitt_oformer_Heat_varied_next_step_novel/Heat_pitt_0.pt'
     # burgers_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel/Burgers_pitt_0.pt'
@@ -235,39 +235,39 @@ if __name__ == '__main__':
     num_samples = 100
 
     # load models 因为用到的config的参数值没什么区别 所以此处用了同一个config
-    fusion_10_model = get_model(fusion_10_model_path, config)
-
-    fusion_100_model = get_model(fusion_100_model_path, config)
-
-    fusion_1000_model = get_model(fusion_1000_model_path, config)
-
-    heat_10_model = get_model(heat_10_model_path, config)
-
-    heat_100_model = get_model(heat_100_model_path, config)
-
-    heat_1000_model = get_model(heat_1000_model_path, config)
-
-    burgers_10_model = get_model(burgers_10_model_path, config)
-
-    burgers_100_model = get_model(burgers_100_model_path, config)
-
-    burgers_1000_model = get_model(burgers_1000_model_path, config)
+    # fusion_10_model = get_model(fusion_10_model_path, config)
+    #
+    # fusion_100_model = get_model(fusion_100_model_path, config)
+    #
+    # fusion_1000_model = get_model(fusion_1000_model_path, config)
+    #
+    # heat_10_model = get_model(heat_10_model_path, config)
+    #
+    # heat_100_model = get_model(heat_100_model_path, config)
+    #
+    # heat_1000_model = get_model(heat_1000_model_path, config)
+    #
+    # burgers_10_model = get_model(burgers_10_model_path, config)
+    #
+    # burgers_100_model = get_model(burgers_100_model_path, config)
+    #
+    # burgers_1000_model = get_model(burgers_1000_model_path, config)
 
     bert_1000_model = get_model_bert(bert_1000_model_path, bert_config)
 
-    bert_1000_cls_model = get_model_bert_cls(bert_1000_cls_model_path, bert_config)
-
-    bert_1000_cls_lhs_model = get_model_bert_cls_lhs(bert_1000_cls_lhs_model_path, bert_config)
-
-    bert_1000_lhs_unfrozen_model = get_model_bert_cls_lhs(bert_1000_lhs_unfrozen_model_path, bert_config)
-
-    bert_1000_cls_lhs_unfrozen_model = get_model_bert_cls_lhs(bert_1000_cls_lhs_unfrozen_model_path, bert_config)
-
-    kdv_10_model = get_model(kdv_10_model_path, config)
-
-    kdv_100_model = get_model(kdv_100_model_path, config)
-
-    kdv_1000_model = get_model(kdv_1000_model_path, config)
+    # bert_1000_cls_model = get_model_bert_cls(bert_1000_cls_model_path, bert_config)
+    #
+    # bert_1000_cls_lhs_model = get_model_bert_cls_lhs(bert_1000_cls_lhs_model_path, bert_config)
+    #
+    # bert_1000_lhs_unfrozen_model = get_model_bert_cls_lhs(bert_1000_lhs_unfrozen_model_path, bert_config)
+    #
+    # bert_1000_cls_lhs_unfrozen_model = get_model_bert_cls_lhs(bert_1000_cls_lhs_unfrozen_model_path, bert_config)
+    #
+    # kdv_10_model = get_model(kdv_10_model_path, config)
+    #
+    # kdv_100_model = get_model(kdv_100_model_path, config)
+    #
+    # kdv_1000_model = get_model(kdv_1000_model_path, config)
 
     # config for data loading process
     heat_config = {
@@ -390,23 +390,23 @@ if __name__ == '__main__':
     # plt.text(3, 2, 'start')
     # suptitle = ""
     for j, (model, model_name) in enumerate([
-        (fusion_10_model, "fusion 10"),
-        (fusion_100_model, "fusion 100"),
-        (fusion_1000_model, "fusion 1000"),
-        (heat_10_model, "heat 10"),
-        (heat_100_model, "heat 100"),
-        (heat_1000_model, "heat 1000"),
-        (burgers_10_model, "burgers 10"),
-        (burgers_100_model, "burgers 100"),
-        (burgers_1000_model, "burgers 1000"),
+        # (fusion_10_model, "fusion 10"),
+        # (fusion_100_model, "fusion 100"),
+        # (fusion_1000_model, "fusion 1000"),
+        # (heat_10_model, "heat 10"),
+        # (heat_100_model, "heat 100"),
+        # (heat_1000_model, "heat 1000"),
+        # (burgers_10_model, "burgers 10"),
+        # (burgers_100_model, "burgers 100"),
+        # (burgers_1000_model, "burgers 1000"),
         (bert_1000_model, "bert 1000"),
-        (bert_1000_cls_model, "bert cls 1000"),
-        (bert_1000_cls_lhs_model, "bert cls lhs 1000"),
-        (bert_1000_lhs_unfrozen_model, "bert lhs unfrozen 1000"),
-        (bert_1000_cls_lhs_unfrozen_model, "bert cls lhs unfrozen 1000"),
-        (kdv_10_model, "kdv 10"),
-        (kdv_100_model, "kdv 100"),
-        (kdv_1000_model, "kdv 1000"),
+        # (bert_1000_cls_model, "bert cls 1000"),
+        # (bert_1000_cls_lhs_model, "bert cls lhs 1000"),
+        # (bert_1000_lhs_unfrozen_model, "bert lhs unfrozen 1000"),
+        # (bert_1000_cls_lhs_unfrozen_model, "bert cls lhs unfrozen 1000"),
+        # (kdv_10_model, "kdv 10"),
+        # (kdv_100_model, "kdv 100"),
+        # (kdv_1000_model, "kdv 1000"),
     ]):
         file.write(f"============evaluating Model:{model_name}============\n")
         if 'bert' in model_name:
