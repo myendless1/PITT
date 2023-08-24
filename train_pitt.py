@@ -415,14 +415,18 @@ if __name__ == '__main__':
 
     # modify configs for each model according to the PITT paper
     for flnm, data_name, batch_size, lr, wd, do in [
-        ('Heat', 'varied_heat_10000.h5', 32, 1e-4, 1e-4, 0.2),
+        # ('Heat', 'varied_heat_10000.h5', 32, 1e-4, 1e-4, 0.2),
         ('Burgers', 'varied_burgers_2500.h5', 128, 1e-4, 1e-4, 0.2),
         ('KdV', 'varied_kdv_2500.h5', 64, 1e-3, 1e-8, 0.0),
     ]:
         # train different model with different training set size
         # num_samples=10 means 10 equations(90 frames for each equation) thus 900 data.
         # training rate = 0.6 thus training set size is 540 when num_samples=10
-        for num_samples in [10, 100, 1000]:
+        for num_samples in [
+            10,
+            # 100,
+            # 1000
+        ]:
             print(
                 f"flnm:{flnm},data_name:{data_name},num_samples:{num_samples}batch_size:{batch_size},learning_rate:{lr}"
                 f",weight_decay:{wd},dropout:{do}"
