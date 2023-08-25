@@ -213,7 +213,7 @@ if __name__ == '__main__':
     # burgers_10_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_10/Burgers_pitt_0.pt'
     # burgers_100_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_100/Burgers_pitt_0.pt'
     # burgers_1000_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_1000/Burgers_pitt_0.pt'
-    bert_1000_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-4_0.1_1.pt'
+    bert_1000_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/pitt_oformer_FusionBert_frozen_cls/pitt_oformer_FusionBert_varied_next_step_novel/FusionBert_pitt_0.pt'
     # bert_1000_cls_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-4_0.1_1000_CLS_hs[0]_bert_frozen.pt'
     # bert_1000_cls_lhs_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-4_0.1_1000_CLS_lhs_bert_frozen.pt'
     # bert_1000_lhs_unfrozen_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-4_0.1_1000_lhs_bert_unfrozen.pt'
