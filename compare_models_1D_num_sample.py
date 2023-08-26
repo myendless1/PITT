@@ -166,6 +166,8 @@ def get_model_bert(model_path, config):
     model_dict = torch.load(model_path)
     model.load_state_dict(model_dict['model_state_dict'])
     return model
+
+
 def get_model_bert_cls(model_path, config):
     model_config = BertConfig.from_pretrained('models/BERT/bert-tiny/bert_config.json')
     bert_model_path = 'models/BERT/bert-tiny'
@@ -176,12 +178,14 @@ def get_model_bert_cls(model_path, config):
     bert_model = BertModel.from_pretrained(bert_model_path, config=model_config, ignore_mismatched_sizes=True)
     neural_operator = get_neural_operator(config['neural_operator'], config)
     model = pitt_cls.PhysicsInformedTokenTransformerBertCls(500, config['hidden'], config['layers'], config['heads'],
-                                                config['num_x'], dropout=config['dropout'],
-                                                neural_operator=neural_operator, bert_model=bert_model).to(
+                                                            config['num_x'], dropout=config['dropout'],
+                                                            neural_operator=neural_operator, bert_model=bert_model).to(
         device=device)
     model_dict = torch.load(model_path)
     model.load_state_dict(model_dict['model_state_dict'])
     return model
+
+
 def get_model_bert_cls_lhs(model_path, config):
     model_config = BertConfig.from_pretrained('models/BERT/bert-tiny/bert_config.json')
     bert_model_path = 'models/BERT/bert-tiny'
@@ -191,9 +195,11 @@ def get_model_bert_cls_lhs(model_path, config):
     # 通过配置和路径导入模型
     bert_model = BertModel.from_pretrained(bert_model_path, config=model_config, ignore_mismatched_sizes=True)
     neural_operator = get_neural_operator(config['neural_operator'], config)
-    model = pitt_cls_lhs.PhysicsInformedTokenTransformerBertCls(500, config['hidden'], config['layers'], config['heads'],
-                                                config['num_x'], dropout=config['dropout'],
-                                                neural_operator=neural_operator, bert_model=bert_model).to(
+    model = pitt_cls_lhs.PhysicsInformedTokenTransformerBertCls(500, config['hidden'], config['layers'],
+                                                                config['heads'],
+                                                                config['num_x'], dropout=config['dropout'],
+                                                                neural_operator=neural_operator,
+                                                                bert_model=bert_model).to(
         device=device)
     model_dict = torch.load(model_path)
     model.load_state_dict(model_dict['model_state_dict'])
@@ -213,11 +219,11 @@ if __name__ == '__main__':
     # burgers_10_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_10/Burgers_pitt_0.pt'
     # burgers_100_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_100/Burgers_pitt_0.pt'
     # burgers_1000_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_1000/Burgers_pitt_0.pt'
-    bert_1000_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/pitt_oformer_FusionBert_frozen_cls/pitt_oformer_FusionBert_varied_next_step_novel/FusionBert_pitt_0.pt'
+    bert_1000_model_lhs_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-6_0.0_lhs_frozen.pt'
     # bert_1000_cls_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-4_0.1_1000_CLS_hs[0]_bert_frozen.pt'
-    # bert_1000_cls_lhs_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-4_0.1_1000_CLS_lhs_bert_frozen.pt'
-    # bert_1000_lhs_unfrozen_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-4_0.1_1000_lhs_bert_unfrozen.pt'
-    # bert_1000_cls_lhs_unfrozen_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-4_0.1_1000_CLS_lhs_bert_unfrozen.pt'
+    bert_1000_cls_lhs_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-6_0.0_lhs_cls_frozen.pt'
+    # bert_1000_lhs_unfrozen_model_path =
+    bert_1000_cls_lhs_unfrozen_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-6_0.0_lhs_unfrozen.pt'
 
     # kdv_10_model_path = '1D_results/pitt_oformer_KdV_varied_next_step_novel_10/KdV_pitt_0.pt'
     # kdv_100_model_path = '1D_results/pitt_oformer_KdV_varied_next_step_novel_100/KdV_pitt_0.pt'
@@ -253,15 +259,15 @@ if __name__ == '__main__':
     #
     # burgers_1000_model = get_model(burgers_1000_model_path, config)
 
-    bert_1000_model = get_model_bert(bert_1000_model_path, bert_config)
+    bert_1000_lhs_model = get_model_bert_cls_lhs(bert_1000_model_lhs_path, bert_config)
 
     # bert_1000_cls_model = get_model_bert_cls(bert_1000_cls_model_path, bert_config)
     #
-    # bert_1000_cls_lhs_model = get_model_bert_cls_lhs(bert_1000_cls_lhs_model_path, bert_config)
+    bert_1000_cls_lhs_model = get_model_bert_cls_lhs(bert_1000_cls_lhs_model_path, bert_config)
     #
     # bert_1000_lhs_unfrozen_model = get_model_bert_cls_lhs(bert_1000_lhs_unfrozen_model_path, bert_config)
     #
-    # bert_1000_cls_lhs_unfrozen_model = get_model_bert_cls_lhs(bert_1000_cls_lhs_unfrozen_model_path, bert_config)
+    bert_1000_cls_lhs_unfrozen_model = get_model_bert_cls_lhs(bert_1000_cls_lhs_unfrozen_model_path, bert_config)
     #
     # kdv_10_model = get_model(kdv_10_model_path, config)
     #
@@ -399,11 +405,11 @@ if __name__ == '__main__':
         # (burgers_10_model, "burgers 10"),
         # (burgers_100_model, "burgers 100"),
         # (burgers_1000_model, "burgers 1000"),
-        (bert_1000_model, "bert 1000"),
+        (bert_1000_lhs_model, "bert lhs 1000"),
         # (bert_1000_cls_model, "bert cls 1000"),
-        # (bert_1000_cls_lhs_model, "bert cls lhs 1000"),
+        (bert_1000_cls_lhs_model, "bert cls lhs 1000"),
         # (bert_1000_lhs_unfrozen_model, "bert lhs unfrozen 1000"),
-        # (bert_1000_cls_lhs_unfrozen_model, "bert cls lhs unfrozen 1000"),
+        (bert_1000_cls_lhs_unfrozen_model, "bert cls lhs unfrozen 1000"),
         # (kdv_10_model, "kdv 10"),
         # (kdv_100_model, "kdv 100"),
         # (kdv_1000_model, "kdv 1000"),
