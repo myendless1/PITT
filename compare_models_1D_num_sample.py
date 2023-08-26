@@ -445,7 +445,7 @@ if __name__ == '__main__':
                         print(x0.shape)
                         y_pred = model(grid.to(device), tokens.to(device), x0.to(device), t.to(device))
                         y = y[..., 0].to(device=device)
-                        loss = round(loss_fn(y_pred, y).item(), 5)
+                        loss = round(loss_fn(y_pred, y).item(), 6)
                         file.write(f"{datatype}: {loss}\n")
                         # ax[i][2 * j].plot(y[0].reshape(100, ).detach().cpu())
                         # ax[i][2 * j].plot(y_pred[0].reshape(100, ).detach().cpu())
