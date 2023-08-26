@@ -511,13 +511,17 @@ def train_fusion():
 
     # the best super parameters found by training models with num_samples=10
     for batch_size in [32]:
-        for lr in [0.001]:
-            for weight_decay in [1e-4]:
+        for lr in [0.0001]:
+            for weight_decay in [1e-6]:
                 for dropout in [0]:
                     # train different model with different training set size. Param num_samples=10 means 10 equations(90
                     # frames for each equation) thus 900 data in heat, burgers and KdV respectively. Training rate =
                     # 0.6 thus total training set size is 1620 when num_samples=10.
-                    for num_samples in [10, 100, 1000]:
+                    for num_samples in [
+                        # 10,
+                        # 100,
+                        1000
+                    ]:
                         print(
                             f"flnm:{train_args['flnm']},data_name:{train_args['data_name']},num_samples:{num_samples},"
                             f"batch_size:{batch_size},learning_rate:{lr},weight_decay:{train_args['weight_decay']},"
