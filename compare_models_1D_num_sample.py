@@ -222,9 +222,7 @@ if __name__ == '__main__':
     # burgers_100_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_100/Burgers_pitt_0.pt'
     # burgers_1000_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_1000/Burgers_pitt_0.pt'
     bert_1000_model_lhs_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-6_0.0_lhs_frozen.pt'
-    # bert_1000_cls_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-4_0.1_1000_CLS_hs[0]_bert_frozen.pt'
     bert_1000_cls_lhs_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-6_0.0_lhs_cls_frozen.pt'
-    # bert_1000_lhs_unfrozen_model_path =
     bert_1000_cls_lhs_unfrozen_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-6_0.0_lhs_unfrozen.pt'
     bert_1000_full_hs0_unfrozen_fine_tuned_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-6_0.0_hs0_unfrozen.pt'
     bert_1000_cls_lhs_unfrozen_fine_tuned_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-6_0.0_lhs_cls_frozen_fine_tuning.pt'
@@ -263,16 +261,12 @@ if __name__ == '__main__':
     #
     # burgers_1000_model = get_model(burgers_1000_model_path, config)
 
-    # bert_1000_lhs_model = get_model_bert_cls_lhs(bert_1000_model_lhs_path, bert_config)
+    bert_1000_lhs_model = get_model_bert_cls_lhs(bert_1000_model_lhs_path, bert_config)
 
-    # bert_1000_cls_model = get_model_bert_cls(bert_1000_cls_model_path, bert_config)
-    #
-    # bert_1000_cls_lhs_model = get_model_bert_cls_lhs(bert_1000_cls_lhs_model_path, bert_config)
-    #
-    # bert_1000_lhs_unfrozen_model = get_model_bert_cls_lhs(bert_1000_lhs_unfrozen_model_path, bert_config)
-    #
-    # bert_1000_cls_lhs_unfrozen_model = get_model_bert_cls_lhs(bert_1000_cls_lhs_unfrozen_model_path, bert_config)
-    #
+    bert_1000_cls_lhs_model = get_model_bert_cls_lhs(bert_1000_cls_lhs_model_path, bert_config)
+
+    bert_1000_cls_lhs_unfrozen_model = get_model_bert_cls_lhs(bert_1000_cls_lhs_unfrozen_model_path, bert_config)
+
     bert_1000_cls_lhs_frozen_fine_tuned_model = get_model_bert_cls_lhs(bert_1000_cls_lhs_unfrozen_fine_tuned_model_path,
                                                                        bert_config)
 
@@ -415,11 +409,9 @@ if __name__ == '__main__':
         # (burgers_10_model, "burgers 10"),
         # (burgers_100_model, "burgers 100"),
         # (burgers_1000_model, "burgers 1000"),
-        # (bert_1000_lhs_model, "bert lhs 1000"),
-        # (bert_1000_cls_model, "bert cls 1000"),
-        # (bert_1000_cls_lhs_model, "bert cls lhs 1000"),
-        # (bert_1000_lhs_unfrozen_model, "bert lhs unfrozen 1000"),
-        # (bert_1000_cls_lhs_unfrozen_model, "bert cls lhs unfrozen 1000"),
+        (bert_1000_lhs_model, "bert lhs 1000"),
+        (bert_1000_cls_lhs_model, "bert cls lhs 1000"),
+        (bert_1000_cls_lhs_unfrozen_model, "bert cls lhs unfrozen 1000"),
         (bert_1000_cls_lhs_frozen_fine_tuned_model, "bert cls lhs frozen fine tuned 1000"),
         (bert_1000_full_hs0_frozen_fine_tuned_model, "bert full hs0 frozen fine tuned 1000"),
         # (kdv_10_model, "kdv 10"),
