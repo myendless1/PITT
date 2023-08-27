@@ -1,1 +1,8 @@
-============evaluating Model:bert 1000============
+============evaluating Model:bert cls lhs frozen fine tuned 1000============
+heat: 0.0001392853926162287
+burgers: 0.0002584475346375257
+KdV: 0.0010432200255583869
+============evaluating Model:bert full hs0 frozen fine tuned 1000============
+heat: 0.00020319601305527612
+burgers: 0.0003898385826808711
+KdV: 0.0016764072954861655

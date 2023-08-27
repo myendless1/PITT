@@ -273,7 +273,7 @@ class LinearAttention(nn.Module):
         return self.to_out(out), self.to_q.weight
 
 
-class PhysicsInformedTokenTransformerBert(nn.Module):
+class PhysicsInformedTokenTransformerBertFullHs0(nn.Module):
     def __init__(self, input_dim, hidden_dim, num_layers, num_heads, output_dim, neural_operator, bert_model,
                  dropout=0.1):
         super().__init__()
@@ -386,7 +386,6 @@ class PhysicsInformedTokenTransformerBert(nn.Module):
                                          token_type_ids=token_type_ids)
 
         bert_embedding = torch.tensor(bert_embedding['hidden_states'][0]).to(device)
-
         token_embedding = torch.swapaxes(self.embedding_linear(torch.swapaxes(bert_embedding, 1, 2)), 1, 2)
 
         kh1 = token_embedding.clone()
