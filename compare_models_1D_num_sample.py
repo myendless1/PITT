@@ -210,9 +210,9 @@ def get_model_bert_cls_lhs(model_path, config):
 
 if __name__ == '__main__':
 
-    # fusion_10_model_path = '1D_results/pitt_oformer_Fusion_varied_next_step_novel_32_0.001_0.0001_0_10/Fusion_pitt_0.pt'
-    # fusion_100_model_path = '1D_results/pitt_oformer_Fusion_varied_next_step_novel_32_0.001_0.0001_0_100/Fusion_pitt_0.pt'
-    # fusion_1000_model_path = '1D_results/pitt_oformer_Fusion_varied_next_step_novel_32_0.001_0.0001_0_1000/Fusion_pitt_0.pt'
+    # fusion_10_model_path = '1D_results/pitt_oformer_Fusion_varied_next_step_novel_32_0.001_0.0001_0_10/Fusion_pitt_32_1e-4_1e-6_0.0.pt'
+    # fusion_100_model_path = '1D_results/pitt_oformer_Fusion_varied_next_step_novel_32_0.001_0.0001_0_100/Fusion_pitt_32_1e-4_1e-6_0.0.pt'
+    fusion_1000_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/Fusion_pitt_32_1e-4_1e-6_0.0.pt'
     #
     # heat_10_model_path = '1D_results/pitt_oformer_Heat_varied_next_step_novel_10/Heat_pitt_0.pt'
     # heat_100_model_path = '1D_results/pitt_oformer_Heat_varied_next_step_novel_100/Heat_pitt_0.pt'
@@ -221,11 +221,11 @@ if __name__ == '__main__':
     # burgers_10_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_10/Burgers_pitt_0.pt'
     # burgers_100_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_100/Burgers_pitt_0.pt'
     # burgers_1000_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_1000/Burgers_pitt_0.pt'
-    bert_1000_model_lhs_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-6_0.0_lhs_frozen.pt'
-    bert_1000_cls_lhs_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-6_0.0_lhs_cls_frozen.pt'
-    bert_1000_cls_lhs_unfrozen_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-6_0.0_lhs_unfrozen.pt'
-    bert_1000_full_hs0_unfrozen_fine_tuned_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-6_0.0_hs0_unfrozen.pt'
-    bert_1000_cls_lhs_unfrozen_fine_tuned_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-6_0.0_lhs_cls_frozen_fine_tuning.pt'
+    # bert_1000_model_lhs_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-6_0.0_lhs_frozen.pt'
+    # bert_1000_cls_lhs_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-6_0.0_lhs_cls_frozen.pt'
+    # bert_1000_cls_lhs_unfrozen_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-6_0.0_lhs_unfrozen.pt'
+    # bert_1000_full_hs0_unfrozen_fine_tuned_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-6_0.0_hs0_unfrozen.pt'
+    # bert_1000_cls_lhs_unfrozen_fine_tuned_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-6_0.0_lhs_cls_frozen_fine_tuning.pt'
 
     # kdv_10_model_path = '1D_results/pitt_oformer_KdV_varied_next_step_novel_10/KdV_pitt_0.pt'
     # kdv_100_model_path = '1D_results/pitt_oformer_KdV_varied_next_step_novel_100/KdV_pitt_0.pt'
@@ -247,7 +247,7 @@ if __name__ == '__main__':
     #
     # fusion_100_model = get_model(fusion_100_model_path, config)
     #
-    # fusion_1000_model = get_model(fusion_1000_model_path, config)
+    fusion_1000_model = get_model(fusion_1000_model_path, config)
     #
     # heat_10_model = get_model(heat_10_model_path, config)
     #
@@ -261,17 +261,17 @@ if __name__ == '__main__':
     #
     # burgers_1000_model = get_model(burgers_1000_model_path, config)
 
-    bert_1000_lhs_model = get_model_bert_cls_lhs(bert_1000_model_lhs_path, bert_config)
-
-    bert_1000_cls_lhs_model = get_model_bert_cls_lhs(bert_1000_cls_lhs_model_path, bert_config)
-
-    bert_1000_cls_lhs_unfrozen_model = get_model_bert_cls_lhs(bert_1000_cls_lhs_unfrozen_model_path, bert_config)
-
-    bert_1000_cls_lhs_frozen_fine_tuned_model = get_model_bert_cls_lhs(bert_1000_cls_lhs_unfrozen_fine_tuned_model_path,
-                                                                       bert_config)
-
-    bert_1000_full_hs0_frozen_fine_tuned_model = get_model_bert_hs0(bert_1000_full_hs0_unfrozen_fine_tuned_model_path,
-                                                                    bert_config)
+    # bert_1000_lhs_model = get_model_bert_cls_lhs(bert_1000_model_lhs_path, bert_config)
+    #
+    # bert_1000_cls_lhs_model = get_model_bert_cls_lhs(bert_1000_cls_lhs_model_path, bert_config)
+    #
+    # bert_1000_cls_lhs_unfrozen_model = get_model_bert_cls_lhs(bert_1000_cls_lhs_unfrozen_model_path, bert_config)
+    #
+    # bert_1000_cls_lhs_frozen_fine_tuned_model = get_model_bert_cls_lhs(bert_1000_cls_lhs_unfrozen_fine_tuned_model_path,
+    #                                                                    bert_config)
+    #
+    # bert_1000_full_hs0_frozen_fine_tuned_model = get_model_bert_hs0(bert_1000_full_hs0_unfrozen_fine_tuned_model_path,
+    #                                                                 bert_config)
     #
     # kdv_10_model = get_model(kdv_10_model_path, config)
     #
@@ -350,11 +350,11 @@ if __name__ == '__main__':
     burgers_f = h5py.File("{}{}".format(burgers_config['base_path'], burgers_config['data_name']), 'r')
 
     # get data
-    # heat_train_data, heat_val_data, heat_test_data = get_data(heat_f, heat_config)
-    #
-    # KdV_train_data, KdV_val_data, KdV_test_data = get_data(KdV_f, KdV_config)
-    #
-    # burgers_train_data, burgers_val_data, burgers_test_data = get_data(burgers_f, burgers_config)
+    heat_train_data, heat_val_data, heat_test_data = get_data(heat_f, heat_config)
+
+    KdV_train_data, KdV_val_data, KdV_test_data = get_data(KdV_f, KdV_config)
+
+    burgers_train_data, burgers_val_data, burgers_test_data = get_data(burgers_f, burgers_config)
 
     heat_val_bert_data = get_data_bert(heat_f, heat_config)
 
@@ -366,25 +366,25 @@ if __name__ == '__main__':
     # fusion_loader = DataLoader(ConcatDataset([heat_val_data, KdV_val_data, burgers_val_data]), batch_size=128,
     #                            num_workers=0, generator=torch.Generator(device='cuda'), shuffle=False)
 
-    # heat_loader = DataLoader(heat_val_data, batch_size=32, num_workers=0, generator=torch.Generator(device='cuda'),
-    #                          shuffle=False)
+    heat_loader = DataLoader(heat_val_data, batch_size=32, num_workers=0, generator=torch.Generator(device='cuda'),
+                             shuffle=False)
+
+    burgers_loader = DataLoader(burgers_val_data, batch_size=32, num_workers=0,
+                                generator=torch.Generator(device='cuda'), shuffle=False)
+
+    KdV_loader = DataLoader(KdV_val_data, batch_size=32, num_workers=0, generator=torch.Generator(device='cuda'),
+                            shuffle=False)
+
+    # heat_bert_loader = DataLoader(heat_val_bert_data, batch_size=32, num_workers=0,
+    #                               generator=torch.Generator(device='cuda'),
+    #                               shuffle=False)
     #
-    # burgers_loader = DataLoader(burgers_val_data, batch_size=32, num_workers=0,
-    #                             generator=torch.Generator(device='cuda'), shuffle=False)
+    # burgers_bert_loader = DataLoader(burgers_val_bert_data, batch_size=32, num_workers=0,
+    #                                  generator=torch.Generator(device='cuda'), shuffle=False)
     #
-    # KdV_loader = DataLoader(KdV_val_data, batch_size=32, num_workers=0, generator=torch.Generator(device='cuda'),
-    #                         shuffle=False)
-
-    heat_bert_loader = DataLoader(heat_val_bert_data, batch_size=32, num_workers=0,
-                                  generator=torch.Generator(device='cuda'),
-                                  shuffle=False)
-
-    burgers_bert_loader = DataLoader(burgers_val_bert_data, batch_size=32, num_workers=0,
-                                     generator=torch.Generator(device='cuda'), shuffle=False)
-
-    KdV_bert_loader = DataLoader(KdV_val_bert_data, batch_size=32, num_workers=0,
-                                 generator=torch.Generator(device='cuda'),
-                                 shuffle=False)
+    # KdV_bert_loader = DataLoader(KdV_val_bert_data, batch_size=32, num_workers=0,
+    #                              generator=torch.Generator(device='cuda'),
+    #                              shuffle=False)
 
     # MAE loss
     loss_fn = nn.L1Loss(reduction='mean')
@@ -402,51 +402,51 @@ if __name__ == '__main__':
     for j, (model, model_name) in enumerate([
         # (fusion_10_model, "fusion 10"),
         # (fusion_100_model, "fusion 100"),
-        # (fusion_1000_model, "fusion 1000"),
+        (fusion_1000_model, "fusion 1000"),
         # (heat_10_model, "heat 10"),
         # (heat_100_model, "heat 100"),
         # (heat_1000_model, "heat 1000"),
         # (burgers_10_model, "burgers 10"),
         # (burgers_100_model, "burgers 100"),
         # (burgers_1000_model, "burgers 1000"),
-        (bert_1000_lhs_model, "bert lhs 1000"),
-        (bert_1000_cls_lhs_model, "bert cls lhs 1000"),
-        (bert_1000_cls_lhs_unfrozen_model, "bert cls lhs unfrozen 1000"),
-        (bert_1000_cls_lhs_frozen_fine_tuned_model, "bert cls lhs frozen fine tuned 1000"),
-        (bert_1000_full_hs0_frozen_fine_tuned_model, "bert full hs0 frozen fine tuned 1000"),
+        # (bert_1000_lhs_model, "bert lhs 1000"),
+        # (bert_1000_cls_lhs_model, "bert cls lhs 1000"),
+        # (bert_1000_cls_lhs_unfrozen_model, "bert cls lhs unfrozen 1000"),
+        # (bert_1000_cls_lhs_frozen_fine_tuned_model, "bert cls lhs frozen fine tuned 1000"),
+        # (bert_1000_full_hs0_frozen_fine_tuned_model, "bert full hs0 frozen fine tuned 1000"),
         # (kdv_10_model, "kdv 10"),
         # (kdv_100_model, "kdv 100"),
         # (kdv_1000_model, "kdv 1000"),
     ]):
         file.write(f"============evaluating Model:{model_name}============\n")
         if 'bert' in model_name:
-            for n, (dataloader, datatype) in enumerate([
-                (heat_bert_loader, "heat"),
-                (burgers_bert_loader, "burgers"),
-                (KdV_bert_loader, "KdV")
-            ]):
-                model.eval()
-                with torch.no_grad():
-                    loss = 0
-                    data_num = int(0)
-                    for x0, y, grid, tokens, t in dataloader:
-                        y_pred = model(grid.to(device), tokens.to(device), x0.to(device), t.to(device), device=device)
-                        y = y[..., 0].to(device=device)
-                        data_num += x0.shape[0]
-                        loss += loss_fn(y_pred, y).item() * x0.shape[0]
-                    file.write(f"{datatype}: {loss / data_num}\n")
-        else:
             pass
             # for n, (dataloader, datatype) in enumerate([
-            #     (heat_loader, "heat"),
-            #     (burgers_loader, "burgers"),
-            #     (KdV_loader, "KdV")
+            #     (heat_bert_loader, "heat"),
+            #     (burgers_bert_loader, "burgers"),
+            #     (KdV_bert_loader, "KdV")
             # ]):
             #     model.eval()
             #     with torch.no_grad():
             #         loss = 0
-            #         for n, (x0, y, grid, tokens, t) in enumerate(dataloader):
-            #             y_pred = model(grid.to(device), tokens.to(device), x0.to(device), t.to(device))
+            #         data_num = int(0)
+            #         for x0, y, grid, tokens, t in dataloader:
+            #             y_pred = model(grid.to(device), tokens.to(device), x0.to(device), t.to(device), device=device)
             #             y = y[..., 0].to(device=device)
-            #             loss += loss_fn(y_pred, y).item()
-            #         file.write(f"{datatype}: {loss / n}\n")
+            #             data_num += x0.shape[0]
+            #             loss += loss_fn(y_pred, y).item() * x0.shape[0]
+            #         file.write(f"{datatype}: {loss / data_num}\n")
+        else:
+            for n, (dataloader, datatype) in enumerate([
+                (heat_loader, "heat"),
+                (burgers_loader, "burgers"),
+                (KdV_loader, "KdV")
+            ]):
+                model.eval()
+                with torch.no_grad():
+                    loss = 0
+                    for n, (x0, y, grid, tokens, t) in enumerate(dataloader):
+                        y_pred = model(grid.to(device), tokens.to(device), x0.to(device), t.to(device))
+                        y = y[..., 0].to(device=device)
+                        loss += loss_fn(y_pred, y).item()
+                    file.write(f"{datatype}: {loss / n}\n")
