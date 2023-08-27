@@ -150,7 +150,7 @@ def get_model(model_path, config):
     return model
 
 
-def get_model_bert(model_path, config):
+def get_model_bert_hs0(model_path, config):
     model_config = BertConfig.from_pretrained('models/BERT/bert-tiny/bert_config.json')
     bert_model_path = 'models/BERT/bert-tiny'
     # 修改配置
@@ -224,6 +224,7 @@ if __name__ == '__main__':
     bert_1000_cls_lhs_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-6_0.0_lhs_cls_frozen.pt'
     # bert_1000_lhs_unfrozen_model_path =
     bert_1000_cls_lhs_unfrozen_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-6_0.0_lhs_unfrozen.pt'
+    bert_1000_full_hs0_unfrozen_fine_tuned_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-6_0.0_hs0_unfrozen.pt'
     bert_1000_cls_lhs_unfrozen_fine_tuned_model_path = '1D_results/pitt_oformer_Burgers_varied_next_step_novel_bert_1000/FusionBert_pitt_32_1e-4_1e-6_0.0_lhs_cls_frozen_fine_tuning.pt'
 
     # kdv_10_model_path = '1D_results/pitt_oformer_KdV_varied_next_step_novel_10/KdV_pitt_0.pt'
@@ -270,7 +271,11 @@ if __name__ == '__main__':
     #
     # bert_1000_cls_lhs_unfrozen_model = get_model_bert_cls_lhs(bert_1000_cls_lhs_unfrozen_model_path, bert_config)
     #
-    bert_1000_cls_lhs_frozen_fine_tuned_model = get_model_bert_cls_lhs(bert_1000_cls_lhs_unfrozen_fine_tuned_model_path, bert_config)
+    bert_1000_cls_lhs_frozen_fine_tuned_model = get_model_bert_cls_lhs(bert_1000_cls_lhs_unfrozen_fine_tuned_model_path,
+                                                                       bert_config)
+
+    bert_1000_full_hs0_frozen_fine_tuned_model = get_model_bert_hs0(bert_1000_full_hs0_unfrozen_fine_tuned_model_path,
+                                                                    bert_config)
     #
     # kdv_10_model = get_model(kdv_10_model_path, config)
     #
@@ -414,6 +419,7 @@ if __name__ == '__main__':
         # (bert_1000_lhs_unfrozen_model, "bert lhs unfrozen 1000"),
         # (bert_1000_cls_lhs_unfrozen_model, "bert cls lhs unfrozen 1000"),
         (bert_1000_cls_lhs_frozen_fine_tuned_model, "bert cls lhs frozen fine tuned 1000"),
+        (bert_1000_full_hs0_frozen_fine_tuned_model, "bert full hs0 frozen fine tuned 1000"),
         # (kdv_10_model, "kdv 10"),
         # (kdv_100_model, "kdv 100"),
         # (kdv_1000_model, "kdv 1000"),
