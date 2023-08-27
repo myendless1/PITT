@@ -19,25 +19,25 @@ device = torch.device('cuda' if (torch.cuda.is_available()) else 'cpu')
 
 
 def get_data(f, config):
-    train_data = TransformerOperatorDataset(f, config['flnm'],
-                                            split="train",
-                                            initial_step=config['initial_step'],
-                                            reduced_resolution=config['reduced_resolution'],
-                                            reduced_resolution_t=config['reduced_resolution_t'],
-                                            reduced_batch=config['reduced_batch'],
-                                            saved_folder=config['base_path'],
-                                            return_text=config['return_text'],
-                                            num_t=config['num_t'],
-                                            num_x=config['num_x'],
-                                            sim_time=config['sim_time'],
-                                            num_samples=config['num_samples'],
-                                            train_style=config['train_style'],
-                                            rollout_length=config['rollout_length'],
-                                            seed=config['seed'],
-                                            val_ratio=0.2,
-                                            )
-    train_data.data = train_data.data.to(device)
-    train_data.grid = train_data.grid.to(device)
+    # train_data = TransformerOperatorDataset(f, config['flnm'],
+    #                                         split="train",
+    #                                         initial_step=config['initial_step'],
+    #                                         reduced_resolution=config['reduced_resolution'],
+    #                                         reduced_resolution_t=config['reduced_resolution_t'],
+    #                                         reduced_batch=config['reduced_batch'],
+    #                                         saved_folder=config['base_path'],
+    #                                         return_text=config['return_text'],
+    #                                         num_t=config['num_t'],
+    #                                         num_x=config['num_x'],
+    #                                         sim_time=config['sim_time'],
+    #                                         num_samples=config['num_samples'],
+    #                                         train_style=config['train_style'],
+    #                                         rollout_length=config['rollout_length'],
+    #                                         seed=config['seed'],
+    #                                         val_ratio=0.2,
+    #                                         )
+    # train_data.data = train_data.data.to(device)
+    # train_data.grid = train_data.grid.to(device)
     val_data = TransformerOperatorDataset(f, config['flnm'],
                                           split="val",
                                           initial_step=config['initial_step'],
@@ -53,30 +53,32 @@ def get_data(f, config):
                                           train_style=config['train_style'],
                                           rollout_length=config['rollout_length'],
                                           seed=config['seed'],
-                                          val_ratio=0.2,
+                                          val_ratio=1,
+                                          test_ratio=0,
                                           )
     val_data.data = val_data.data.to(device)
     val_data.grid = val_data.grid.to(device)
-    test_data = TransformerOperatorDataset(f, config['flnm'],
-                                           split="test",
-                                           initial_step=config['initial_step'],
-                                           reduced_resolution=config['reduced_resolution'],
-                                           reduced_resolution_t=config['reduced_resolution_t'],
-                                           reduced_batch=config['reduced_batch'],
-                                           saved_folder=config['base_path'],
-                                           return_text=config['return_text'],
-                                           num_t=config['num_t'],
-                                           num_x=config['num_x'],
-                                           sim_time=config['sim_time'],
-                                           num_samples=config['num_samples'],
-                                           train_style=config['train_style'],
-                                           rollout_length=config['rollout_length'],
-                                           seed=config['seed'],
-                                           val_ratio=0.2,
-                                           )
-    test_data.data = test_data.data.to(device)
-    test_data.grid = test_data.grid.to(device)
-    return train_data, val_data, test_data
+    # test_data = TransformerOperatorDataset(f, config['flnm'],
+    #                                        split="test",
+    #                                        initial_step=config['initial_step'],
+    #                                        reduced_resolution=config['reduced_resolution'],
+    #                                        reduced_resolution_t=config['reduced_resolution_t'],
+    #                                        reduced_batch=config['reduced_batch'],
+    #                                        saved_folder=config['base_path'],
+    #                                        return_text=config['return_text'],
+    #                                        num_t=config['num_t'],
+    #                                        num_x=config['num_x'],
+    #                                        sim_time=config['sim_time'],
+    #                                        num_samples=config['num_samples'],
+    #                                        train_style=config['train_style'],
+    #                                        rollout_length=config['rollout_length'],
+    #                                        seed=config['seed'],
+    #                                        val_ratio=0.2,
+    #                                        )
+    # test_data.data = test_data.data.to(device)
+    # test_data.grid = test_data.grid.to(device)
+    # return train_data, val_data, test_data
+    return val_data
 
 
 def get_data_bert(f, config):
@@ -350,11 +352,11 @@ if __name__ == '__main__':
     burgers_f = h5py.File("{}{}".format(burgers_config['base_path'], burgers_config['data_name']), 'r')
 
     # get data
-    heat_train_data, heat_val_data, heat_test_data = get_data(heat_f, heat_config)
+    heat_val_data = get_data(heat_f, heat_config)
 
-    KdV_train_data, KdV_val_data, KdV_test_data = get_data(KdV_f, KdV_config)
+    KdV_val_data = get_data(KdV_f, KdV_config)
 
-    burgers_train_data, burgers_val_data, burgers_test_data = get_data(burgers_f, burgers_config)
+    burgers_val_data = get_data(burgers_f, burgers_config)
 
     heat_val_bert_data = get_data_bert(heat_f, heat_config)
 
